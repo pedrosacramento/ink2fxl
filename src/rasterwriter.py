@@ -147,7 +147,10 @@ class RasterWriter(SVGHandler):
             # TODO this is very fragile
             rx = 0
             ry = 0
-            for l in stdoutdata.splitlines():
+
+            out = stdoutdata.replace(",",".").splitlines()
+            
+            for l in out:
                 m = re.match(cls.INKSCAPE_AREA_PATTERN, l)
                 if (m):
                     rx = float(m.group(1))
